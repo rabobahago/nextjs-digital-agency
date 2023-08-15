@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 const links = [
   {
     id: 1,
@@ -40,6 +41,7 @@ export default function Navbar() {
         Rabodev
       </Link>
       <div className={styles.links}>
+        <DarkModeToggle />
         {links.map((link) => (
           <Link href={link.url} key={link.id} className={styles.link}>
             {link.title}
