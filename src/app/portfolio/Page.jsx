@@ -2,6 +2,10 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Rabo Dev Portfolio",
+  description: "This is the description",
+};
 const Portfolio = () => {
   return (
     <div className={styles.container}>

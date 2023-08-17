@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+
 const { Schema } = mongoose;
+
 const postSchema = new Schema(
   {
     title: {
@@ -14,7 +16,6 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-
     content: {
       type: String,
       required: true,
@@ -27,10 +28,5 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
-let Post;
-try {
-  Post = mongoose.model("Post");
-} catch (error) {
-  Post = mongoose.model("Post", postSchema);
-}
-export default Post;
+//If the Post collection does not exist create a new one.
+export default mongoose.models.Post || mongoose.model("Post", postSchema);

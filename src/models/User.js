@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+
 const { Schema } = mongoose;
+
 const userSchema = new Schema(
   {
     name: {
@@ -20,10 +22,5 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-let User;
-try {
-  Post = mongoose.model("User");
-} catch (error) {
-  Post = mongoose.model("User", userSchema);
-}
-export default User;
+//If the User collection does not exist create a new one.
+export default mongoose.models.User || mongoose.model("User", userSchema);
